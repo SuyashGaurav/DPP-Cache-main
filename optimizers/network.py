@@ -23,7 +23,7 @@ def split_sequences(sequences, ins, out):
 
 def update_weight(model, demands, past, future):
     X, y = split_sequences(demands, past, future)
-    model.fit(X, y, epochs=10, verbose=0)
+    model.fit(X, y, epochs=30, verbose=0)
 
 
 def get_model(init_data, past, future, threshold, use_saved=False):
@@ -51,7 +51,7 @@ def get_model(init_data, past, future, threshold, use_saved=False):
             model.add(TimeDistributed(Dense(threshold)))
             model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.00005), loss='mse')
             print("Model is compiled, starting to train model..")
-            model.fit(X, y, epochs=20, verbose=0)
+            model.fit(X, y, epochs=30, verbose=0)
             print("Model fitting complete...")
             model.save("./models/init.hdf5")
         print("Model saved to ./models dir ...")

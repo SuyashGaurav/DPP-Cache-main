@@ -1,4 +1,3 @@
-# 583f4429c5
 import math
 import random
 import numpy as np
@@ -96,45 +95,45 @@ def run_algorithms(path_to_input, path, NumSeq, time_limit, threshold, alpha, ca
         print("-"*50)
         print("Iter:", i, "/", NumSeq)
         print()
-        # hit_rates_OPT, download_rate_OPT = MIN(df, Adj, time, library_size, C)
-        # hit_rates_OPT = pd.DataFrame(hit_rates_OPT)
-        # download_rate_OPT = pd.DataFrame(download_rate_OPT)
-        # print("Min Completed")
-        # print()
+        hit_rates_OPT, download_rate_OPT = MIN(df, Adj, time, library_size, C)
+        hit_rates_OPT = pd.DataFrame(hit_rates_OPT)
+        download_rate_OPT = pd.DataFrame(download_rate_OPT)
+        print("Min Completed")
+        print()
 
-        # OPT_Hits.append(np.sum(hit_rates_OPT)/(time*users))
-        # OPT_Downloads.append(np.sum(download_rate_OPT)/(time*caches))
+        OPT_Hits.append(np.sum(hit_rates_OPT)/(time*users))
+        OPT_Downloads.append(np.sum(download_rate_OPT)/(time*caches))
 
-        # hit_rates_LFU, download_rate_LFU = Bipartite_LFU(
-        #     df, Adj, time, library_size, C)
-        # hit_rates_LFU = pd.DataFrame(hit_rates_LFU)
-        # download_rate_LFU = pd.DataFrame(download_rate_LFU)
-        # print("BLFU Completed")
-        # print()
+        hit_rates_LFU, download_rate_LFU = Bipartite_LFU(
+            df, Adj, time, library_size, C)
+        hit_rates_LFU = pd.DataFrame(hit_rates_LFU)
+        download_rate_LFU = pd.DataFrame(download_rate_LFU)
+        print("BLFU Completed")
+        print()
 
 
-        # LFU_Hits.append(np.sum(hit_rates_LFU)/(time*users))
-        # LFU_Downloads.append(np.sum(download_rate_LFU)/(time*caches))
+        LFU_Hits.append(np.sum(hit_rates_LFU)/(time*users))
+        LFU_Downloads.append(np.sum(download_rate_LFU)/(time*caches))
 
-        # hit_rates_LRU, download_rate_LRU = Bipartite_LRU(
-        #     df, Adj, time, library_size, C)
-        # hit_rates_LRU = pd.DataFrame(hit_rates_LRU)
-        # download_rate_LRU = pd.DataFrame(download_rate_LRU)
-        # print("BLRU Completed")
-        # print()
+        hit_rates_LRU, download_rate_LRU = Bipartite_LRU(
+            df, Adj, time, library_size, C)
+        hit_rates_LRU = pd.DataFrame(hit_rates_LRU)
+        download_rate_LRU = pd.DataFrame(download_rate_LRU)
+        print("BLRU Completed")
+        print()
 
-        # LRU_Hits.append(np.sum(hit_rates_LRU)/(time*users))
-        # LRU_Downloads.append(np.sum(download_rate_LRU)/(time*caches))
+        LRU_Hits.append(np.sum(hit_rates_LRU)/(time*users))
+        LRU_Downloads.append(np.sum(download_rate_LRU)/(time*caches))
 
-        # hit_rates_Perturbed_LFU, download_rate_Perturbed_LFU = Perturbed_Bipartite_LFU(
-        #     df, Adj, time, library_size, C, d)
-        # hit_rates_Perturbed_LFU = pd.DataFrame(hit_rates_Perturbed_LFU)
-        # download_rate_Perturbed_LFU = pd.DataFrame(download_rate_Perturbed_LFU)
+        hit_rates_Perturbed_LFU, download_rate_Perturbed_LFU = Perturbed_Bipartite_LFU(
+            df, Adj, time, library_size, C, d)
+        hit_rates_Perturbed_LFU = pd.DataFrame(hit_rates_Perturbed_LFU)
+        download_rate_Perturbed_LFU = pd.DataFrame(download_rate_Perturbed_LFU)
 
-        # perturbed_LFU_Hits.append(np.sum(hit_rates_Perturbed_LFU)/(time*users))
-        # perturbed_LFU_Downloads.append(np.sum(download_rate_Perturbed_LFU)/(time*caches))
-        # print("PBLRU Completed")
-        # print()
+        perturbed_LFU_Hits.append(np.sum(hit_rates_Perturbed_LFU)/(time*users))
+        perturbed_LFU_Downloads.append(np.sum(download_rate_Perturbed_LFU)/(time*caches))
+        print("PBLRU Completed")
+        print()
 
 
 
@@ -198,12 +197,12 @@ def run_algorithms(path_to_input, path, NumSeq, time_limit, threshold, alpha, ca
         
     # Saving the dynamic hit-rate and download logs
 
-    # pd.DataFrame(hit_rates_OPT).to_csv(path+'OPT_Hits_Seq.csv',index=False)
-    # pd.DataFrame(download_rate_OPT).to_csv(path+'OPT_Downloads_Seq.csv',index=False)
-    # pd.DataFrame(hit_rates_LRU).to_csv(path+'LRU_Hits_Seq.csv',index=False)
-    # pd.DataFrame(download_rate_LRU).to_csv(path+'LRU_Downloads_Seq.csv',index=False)
-    # pd.DataFrame(hit_rates_LFU).to_csv(path+'LFU_Hits_Seq.csv',index=False)
-    # pd.DataFrame(download_rate_LFU).to_csv(path+'LFU_Downloads_Seq.csv',index=False)
+    pd.DataFrame(hit_rates_OPT).to_csv(path+'OPT_Hits_Seq.csv',index=False)
+    pd.DataFrame(download_rate_OPT).to_csv(path+'OPT_Downloads_Seq.csv',index=False)
+    pd.DataFrame(hit_rates_LRU).to_csv(path+'LRU_Hits_Seq.csv',index=False)
+    pd.DataFrame(download_rate_LRU).to_csv(path+'LRU_Downloads_Seq.csv',index=False)
+    pd.DataFrame(hit_rates_LFU).to_csv(path+'LFU_Hits_Seq.csv',index=False)
+    pd.DataFrame(download_rate_LFU).to_csv(path+'LFU_Downloads_Seq.csv',index=False)
     # pd.DataFrame(hit_rates_Lead_cache).to_csv(path+'LeadCache_Hits_Seq.csv',index=False)
     # pd.DataFrame(download_rate_Lead_cache).to_csv(path+'LeadCache_Downloads_Seq.csv',index=False)
     pd.DataFrame(perturbed_LFU_Hits).to_csv(path+'perturbed_LFU_Hits_Seq.csv',index=False)
