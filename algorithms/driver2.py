@@ -53,7 +53,7 @@ def run_algorithms(path_to_input, path, NumSeq, time_limit, threshold, alpha, ca
 
     # Generating the request sequence
     #df=pd.read_csv('ratings.csv', sep=',',header=None)
-    data = pd.read_csv(path_to_input, sep = ' ')
+    data = pd.read_csv(path_to_input, sep = ',')
     #data = pd.read_csv("sigmetrics_truncated_data.txt", sep = ' ')
     #data = pd.read_csv("ratings1m.dat", sep = '::')
     #data.columns = ['User_ID', 'File_ID', 'Ratings', 'Timestamp']
@@ -137,23 +137,23 @@ def run_algorithms(path_to_input, path, NumSeq, time_limit, threshold, alpha, ca
 
 
 
-        #print("Running LeadCache")
+        print("Running LeadCache")
 
-        # hit_rates_Lead_cache, download_rate_Lead_cache, hit_rates_Madow, download_rates_Madow = Lead_cache(
-        #     df, Adj, time, library_size, C, d)
-        # hit_rates_Lead_cache = pd.DataFrame(hit_rates_Lead_cache)
-        # download_rate_Lead_cache = pd.DataFrame(download_rate_Lead_cache)
+        hit_rates_Lead_cache, download_rate_Lead_cache, hit_rates_Madow, download_rates_Madow = Lead_cache(
+            df, Adj, time, library_size, C, d)
+        hit_rates_Lead_cache = pd.DataFrame(hit_rates_Lead_cache)
+        download_rate_Lead_cache = pd.DataFrame(download_rate_Lead_cache)
 
-        # LeadCache_Hits.append(np.sum(hit_rates_Lead_cache)/(time*users))
-        # LeadCache_Downloads.append(np.sum(download_rate_Lead_cache)/(time*caches))
+        LeadCache_Hits.append(np.sum(hit_rates_Lead_cache)/(time*users))
+        LeadCache_Downloads.append(np.sum(download_rate_Lead_cache)/(time*caches))
 
-        # hit_rates_Madow = pd.DataFrame(hit_rates_Madow)
-        # download_rates_Madow = pd.DataFrame(download_rates_Madow)
+        hit_rates_Madow = pd.DataFrame(hit_rates_Madow)
+        download_rates_Madow = pd.DataFrame(download_rates_Madow)
 
-        # LeadCache_Hits_Madow.append(np.sum(hit_rates_Madow)/(time*users))
-        # LeadCache_Downloads_Madow.append(np.sum(download_rates_Madow)/(time*caches))
-        # print("LC Completed")
-        # print()
+        LeadCache_Hits_Madow.append(np.sum(hit_rates_Madow)/(time*users))
+        LeadCache_Downloads_Madow.append(np.sum(download_rates_Madow)/(time*caches))
+        print("LC Completed")
+        print()
         
         
         next_dem, time = get_demands(i, time_limit, data, DataLength, NumSeq, threshold)
@@ -203,8 +203,8 @@ def run_algorithms(path_to_input, path, NumSeq, time_limit, threshold, alpha, ca
     pd.DataFrame(download_rate_LRU).to_csv(path+'LRU_Downloads_Seq.csv',index=False)
     pd.DataFrame(hit_rates_LFU).to_csv(path+'LFU_Hits_Seq.csv',index=False)
     pd.DataFrame(download_rate_LFU).to_csv(path+'LFU_Downloads_Seq.csv',index=False)
-    # pd.DataFrame(hit_rates_Lead_cache).to_csv(path+'LeadCache_Hits_Seq.csv',index=False)
-    # pd.DataFrame(download_rate_Lead_cache).to_csv(path+'LeadCache_Downloads_Seq.csv',index=False)
+    pd.DataFrame(hit_rates_Lead_cache).to_csv(path+'LeadCache_Hits_Seq.csv',index=False)
+    pd.DataFrame(download_rate_Lead_cache).to_csv(path+'LeadCache_Downloads_Seq.csv',index=False)
     pd.DataFrame(perturbed_LFU_Hits).to_csv(path+'perturbed_LFU_Hits_Seq.csv',index=False)
     pd.DataFrame(perturbed_LFU_Downloads).to_csv(path+'perturbed_LFU_Downloads_Seq.csv',index=False)
 
