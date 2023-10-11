@@ -1,4 +1,5 @@
 # DPP-Cache
+![cache_hit](https://github.com/SuyashGaurav/DPP-Cache-main/assets/102952185/5061081d-dc96-4b2c-b552-d6eb85fd0c43)
 
 ## Introduction
 This reposiroty contains datasets and files relevant to **DPP-caching algorithm**. We have also made use of GitHub Repository of **LeadCache** Algorithm for experimental comaprisions Links are given below.
